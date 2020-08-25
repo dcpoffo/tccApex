@@ -1,15 +1,14 @@
-<mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
-        <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="/">
-                <i class="material-icons">
-                       <!-- home = nome do icone -->
-                       home
-                  </i> Inicio
-            </a>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content class="content">
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLink='active'>
+                    <a routerLink="/" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item" routerLink='active'>
+                    <a routerLink="produtos" class="nav-link">Produtos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

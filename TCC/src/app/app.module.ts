@@ -14,15 +14,16 @@ import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
-
+import { ProdutosComponent } from './views/produtos/produtos.component';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    NavComponent
-  ],
+    NavComponent,
+      ProdutosComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

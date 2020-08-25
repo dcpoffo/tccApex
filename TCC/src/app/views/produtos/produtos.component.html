@@ -1,0 +1,27 @@
+<div>
+    <button class="btn btn-outline-primary">Novo Produto</button>
+</div>
+
+<div>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Un.Medida</th>
+                <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produto of produtos">
+                <th scope="row">{{produto.id}}</th>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.unidadeMedida}}</td>
+                <td>
+                    <button class="btn btn-outline-primary">Editar</button>
+                    <button class="btn btn-outline-danger">Apagar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
