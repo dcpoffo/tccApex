@@ -28,10 +28,6 @@ namespace API
           public void ConfigureServices(IServiceCollection services)
           {
                services.AddControllers();
-                    //    .AddNewtonsoftJson(
-                    //        opt => opt.SerializerSettings.ReferenceLoopHandling =
-                    //            Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                     //  );
 
                services.AddDbContext<DataContext>(
                          opt => opt.UseSqlServer(

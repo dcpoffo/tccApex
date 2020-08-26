@@ -13,6 +13,6 @@ namespace API.data
         Task<bool> SaveChangesAsync();
 
         Task<Produto[]> GetAllProdutosAsync();
-        Task<Produto> GetProdutosAsyncById(int produtoId);        
+        Task<Produto> GetProdutoAsyncById(int produtoId);        
     }
 }

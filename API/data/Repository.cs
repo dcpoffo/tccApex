@@ -42,7 +42,7 @@ namespace API.data
                return await query.ToArrayAsync();
           }
 
-          public async Task<Produto> GetProdutosAsyncById(int produtoId)
+          public async Task<Produto> GetProdutoAsyncById(int produtoId)
           {
                IQueryable<Produto> query = _context.Produto;
                query = query.AsNoTracking().OrderBy(a => a.Id)
