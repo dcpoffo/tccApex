@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { ProdutosComponent } from './views/produtos/produtos.component';
+import { TituloComponent } from './views/titulo/titulo.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +26,10 @@ import { ProdutosComponent } from './views/produtos/produtos.component';
     HeaderComponent,
     HomeComponent,
     NavComponent,
-      ProdutosComponent,
-   ],
+    ProdutosComponent,
+    TituloComponent
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +37,10 @@ import { ProdutosComponent } from './views/produtos/produtos.component';
     MatToolbarModule,
     MatCardModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
