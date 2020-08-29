@@ -15,9 +15,11 @@ import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { ProdutosComponent } from './views/produtos/produtos.component';
+import { ProdutosComponent } from './views/produtos/produtos-read/produtos.component';
+import { ProdutosCrudComponent } from './views/produtos/produtos-crud/produtos-crud.component';
 import { TituloComponent } from './views/titulo/titulo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NavComponent,
     ProdutosComponent,
-    TituloComponent
+    TituloComponent,
+    ProdutosCrudComponent
   ],
 
   imports: [
@@ -40,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

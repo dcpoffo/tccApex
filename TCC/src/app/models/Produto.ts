@@ -1,5 +1,5 @@
 export class Produto {
-  id: number;
+  id?: number;
   descricao: string;
   unidadeMedida: string;
 

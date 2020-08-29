@@ -5332,20 +5332,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dcpof\\.nuget\\packages\\": {}
+    "C:\\Users\\Apex02\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Apex02\\Desktop\\Darlan\\tccApex\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\dcpof\\.nuget\\packages\\",
-      "outputPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\obj\\",
+      "projectPath": "C:\\Users\\Apex02\\Desktop\\Darlan\\tccApex\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Apex02\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Apex02\\Desktop\\Darlan\\tccApex\\API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\dcpof\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Apex02\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5407,7 +5412,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

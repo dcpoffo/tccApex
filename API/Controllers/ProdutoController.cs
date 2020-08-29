@@ -6,105 +6,116 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-     [ApiController]
-     [Route("[controller]")]
+    [ApiController]
+    [Route("[controller]")]
 
-     public class ProdutoController : ControllerBase
-     {
-          private readonly IRepository _repositorio;
+    public class ProdutoController : ControllerBase
+    {
+        private readonly IRepository _repositorio;
 
-          public ProdutoController(IRepository repositorio)
-          {
-               this._repositorio = repositorio;
-          }
+        public ProdutoController(IRepository repositorio)
+        {
+            this._repositorio = repositorio;
+        }
 
-          [HttpGet]
-          public async Task<IActionResult> GetAll()
-          {
-               try
-               {
-                    var result = await _repositorio.GetAllProdutosAsync();
-                    return Ok(result);
-               }
-               catch (Exception ex)
-               {
-                    return BadRequest($"Erro ao obter todos os produtos: \n{ex.Message}");
-               }
-          }
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                var result = await _repositorio.GetAllProdutosAsync();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao obter todos os produtos: \n{ex.Message}");
+            }
+        }
 
-          [HttpGet("{produtoId}")]
-          public async Task<IActionResult> GetById(int produtoId)
-          {
-               try
-               {
-                    var result = await _repositorio.GetProdutoAsyncById(produtoId);
-                    return Ok(result);
-               }
-               catch (Exception ex)
-               {
-                    return BadRequest($"Erro ao obter o Produto: \n{ex.Message}");
-               }
-          }
+        [HttpGet("{produtoId}")]
+        public async Task<IActionResult> GetById(int produtoId)
+        {
+            try
+            {
+                var result = await _repositorio.GetProdutoAsyncById(produtoId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao obter o Produto: \n{ex.Message}");
+            }
+        }
 
-          [HttpPost]
-          public async Task<IActionResult> Post(Produto produto)
-          {
-               try
-               {
-                    _repositorio.Add(produto);
-                    if (await _repositorio.SaveChangesAsync())
-                    {
-                         return Ok(produto);
-                    }
-               }
-               catch (Exception ex)
-               {
-                    return BadRequest($"Erro ao salvar o Produto: {ex.Message}");
-               }
-               return BadRequest();
-          }
+        [HttpPost]
+        public async Task<IActionResult> Post(Produto produto)
+        {
+            try
+            {
+                _repositorio.Add(produto);
+                if (await _repositorio.SaveChangesAsync())
+                {
+                    return Ok(produto);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao salvar o Produto: {ex.Message}");
+            }
+            return BadRequest();
+        }
 
-          [HttpPut("{produtoId}")]
-          public async Task<IActionResult> Put(int produtoId, Produto produto)
-          {
-               try
-               {
-                    var produtoCadastrado = await _repositorio.GetProdutoAsyncById(produtoId);
+        [HttpPut("{produtoId}")]
+        public async Task<IActionResult> Put(int produtoId, Produto produto)
+        {
+            try
+            {
+                var produtoCadastrado = await _repositorio.GetProdutoAsyncById(produtoId);
 
-                    if (produtoCadastrado == null)
-                    {
-                         return NotFound();
-                    }
+                if (produtoCadastrado == null)
+                {
+                    return NotFound();
+                }
 
-                    _repositorio.Update(produto);
-                    if (await _repositorio.SaveChangesAsync())
-                    {
-                         return Ok(produto);
-                    }
-               }
-               catch (Exception ex)
-               {
-                    return BadRequest($"Erro ao editar o Produto: {ex.Message}");
-               }
-               return BadRequest();
-          }
+                _repositorio.Update(produto);
+                if (await _repositorio.SaveChangesAsync())
+                {
+                    return Ok(produto);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao editar o Produto: {ex.Message}");
+            }
+            return BadRequest();
+        }
 
-          [HttpDelete("{produtoId}")]
-          public async Task<IActionResult> Delete(int produtoId, Produto produto)
-          {
-               try
-               {                   
-                    _repositorio.Delete(produto);
-                    if (await _repositorio.SaveChangesAsync())
-                    {
-                         return Ok(produto);
-                    }
-               }
-               catch (Exception ex)
-               {
-                    return BadRequest($"Erro ao ecluir o Produto: {ex.Message}");
-               }
-               return BadRequest();
-          }
-     }
+        [HttpDelete("{produtoId}")]
+        public async Task<IActionResult> Delete(int produtoId)
+        {
+            try
+            {
+                var produtoCadastrado = await _repositorio.GetProdutoAsyncById(produtoId);
+                if (produtoCadastrado == null)
+                {
+                    return NotFound();
+                }
+
+                _repositorio.Delete(produtoCadastrado);
+                if (await _repositorio.SaveChangesAsync())
+                {
+                    return Ok(
+                         new
+                         {
+                             message = "Produto removido com sucesso"
+                         }
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao deletar o aluno: {ex.Message}");
+            }
+            return BadRequest();
+        }
+    }
 }
