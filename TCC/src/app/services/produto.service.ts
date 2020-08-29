@@ -25,4 +25,8 @@ export class ProdutoService {
     return this.http.post(this.baseURL, produto);
   }
 
+  delete(produto: Produto) {
+    return this.http.delete(`${this.baseURL}/${produto.id}`);
+  }
+
 }

@@ -38,6 +38,18 @@ voltar(){
     this.salvarProduto(this.produtoForm.value);
   }
 
+  apagarProduto(produto: Produto){
+    this.produtoServico.delete(produto).subscribe(
+      (retorno: Produto) => {
+        console.log(retorno);
+        this.carregarProdutos();
+      },
+      (erro: any) => {
+        console.log(erro);
+      }
+    );
+  }
+
   salvarProduto(produto: Produto){
     (produto.id === 0 ? this.modo = 'post'  : this.modo = 'put');
 
