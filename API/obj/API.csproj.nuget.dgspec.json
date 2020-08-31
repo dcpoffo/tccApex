@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj": {}
+    "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\api\\API.csproj": {}
   },
   "projects": {
-    "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj": {
+    "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj",
+        "projectUniqueName": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj",
+        "projectPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\api\\API.csproj",
         "packagesPath": "C:\\Users\\dcpof\\.nuget\\packages\\",
-        "outputPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\obj\\",
+        "outputPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dcpof\\AppData\\Roaming\\NuGet\\NuGet.Config",
