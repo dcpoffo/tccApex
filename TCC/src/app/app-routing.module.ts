@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component';
-import { TituloComponent } from './views/titulo/titulo.component';
 import { ProdutoCrudComponent } from './views/produto-crud/produto-crud.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
@@ -15,10 +14,6 @@ const routes: Routes = [
     component: HomeComponent
   },
   //mesmo nome do routerlink do nav.component
-  {
-    path: 'titulo',
-    component: TituloComponent
-  },
   {
     path: 'produtos',
     component: ProdutoCrudComponent
