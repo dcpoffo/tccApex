@@ -1,12 +1,13 @@
+import { ProdutoService } from 'src/app/services/produto.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component';
 import { TituloComponent } from './views/titulo/titulo.component';
 import { ProdutoCrudComponent } from './views/produto-crud/produto-crud.component';
-import { ProdutoCreateComponent } from './components/produto-create/produto-create.component';
-import { ProdutoUpdateComponent } from './components/produto-update/produto-update.component';
-import { ProdutoDeleteComponent } from './components/produto-delete/produto-delete.component';
+import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
+import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
+import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
 
 const routes: Routes = [
   {

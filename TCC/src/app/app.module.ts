@@ -11,9 +11,10 @@ import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { TituloComponent } from './views/titulo/titulo.component';
 import { ProdutoCrudComponent } from './views/produto-crud/produto-crud.component';
-import { ProdutoReadComponent } from './components/produto-read/produto-read.component';
-import { ProdutoCreateComponent } from './components/produto-create/produto-create.component';
-import { ProdutoUpdateComponent } from './components/produto-update/produto-update.component';
+import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
+import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
+import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
+import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -37,7 +38,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ProdutoCrudComponent,
     ProdutoReadComponent,
     ProdutoCreateComponent,
-    ProdutoUpdateComponent
+    ProdutoUpdateComponent,
+    ProdutoDeleteComponent
   ],
 
   imports: [
