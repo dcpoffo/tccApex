@@ -1,63 +1,64 @@
-import { Produto } from 'src/app/models/Produto';
+import { Cliente } from './../models/Cliente';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, EMPTY } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
+export class ClienteService {
 
-  baseURL = `${environment.mainUrlAPI}produto`;
+  baseURL = `${environment.mainUrlAPI}cliente`;
 
   constructor(private http: HttpClient,
               private snackBar: MatSnackBar) { }
 
-  showMessage(msg: string, isError: boolean = false): void{
+
+  showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: isError ? ['msg-error'] : ['msg-success'],
-    })
+    });
   }
 
-  getAll(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.baseURL).pipe(
+  getAll(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.baseURL).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  getById(id: number): Observable<Produto> {
+  getById(id: number): Observable<Cliente> {
     const url = `${this.baseURL}/${id}`;
-    return this.http.get<Produto>(url).pipe(
+    return this.http.get<Cliente>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  put(produto: Produto): Observable<Produto> {
-    const url = `${this.baseURL}/${produto.id}`;
-    return this.http.put<Produto>(url, produto).pipe(
+  put(cliente: Cliente): Observable<Cliente> {
+    const url = `${this.baseURL}/${cliente.id}`;
+    return this.http.put<Cliente>(url, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  post(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this.baseURL, produto).pipe(
+  post(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.baseURL, cliente).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Produto> {
+  delete(id: number): Observable<Cliente> {
     const url = `${this.baseURL}/${id}`;
-    return this.http.delete<Produto>(url).pipe(
+    return this.http.delete<Cliente>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
@@ -67,5 +68,4 @@ export class ProdutoService {
     this.showMessage('Ocorreu um erro!', true);
     return EMPTY;
   }
-
 }

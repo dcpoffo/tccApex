@@ -10,11 +10,20 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
+
+// produto
 import { ProdutoCrudComponent } from './views/produto-crud/produto-crud.component';
 import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
 import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
+
+// cliente
+import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component';
+import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-read.component';
+import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
+import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
@@ -38,7 +47,12 @@ import { MatButtonModule } from '@angular/material/button';
     ProdutoReadComponent,
     ProdutoCreateComponent,
     ProdutoUpdateComponent,
-    ProdutoDeleteComponent
+    ProdutoDeleteComponent,
+    ClienteCrudComponent,
+    ClienteCreateComponent,
+    ClienteReadComponent,
+    ClienteUpdateComponent,
+    ClienteDeleteComponent
   ],
 
   imports: [

@@ -9,13 +9,13 @@ namespace API.Controllers
     [ApiController]
     [Route("[controller]")]
 
-    public class ProdutoController : ControllerBase
+    public class ClienteController : ControllerBase
     {
         private readonly IRepository _repositorio;
 
-        public ProdutoController(IRepository repositorio)
+        public ClienteController(IRepository repositorio)
         {
-            this._repositorio = repositorio;
+            this._repositorio = repositorio;            
         }
 
         [HttpGet]
@@ -23,97 +23,97 @@ namespace API.Controllers
         {
             try
             {
-                var result = await _repositorio.GetAllProdutosAsync();
+                var result = await _repositorio.GetAllClientesAsync();
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest($"Erro ao obter todos os produtos: \n{ex.Message}");
+                return BadRequest($"Erro ao obter todos os clientes: \n{ex.Message}");
             }
         }
 
-        [HttpGet("{produtoId}")]
-        public async Task<IActionResult> GetById(int produtoId)
+        [HttpGet("{clienteId}")]
+        public async Task<IActionResult> GetById(int clienteId)
         {
             try
             {
-                var result = await _repositorio.GetProdutoAsyncById(produtoId);
+                var result = await _repositorio.GetClienteAsyncById(clienteId);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest($"Erro ao obter o Produto: \n{ex.Message}");
+                return BadRequest($"Erro ao obter o Cliente: \n{ex.Message}");
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Produto produto)
+        public async Task<IActionResult> Post(Cliente cliente)
         {
             try
             {
-                _repositorio.Add(produto);
+                _repositorio.Add(cliente);
                 if (await _repositorio.SaveChangesAsync())
                 {
-                    return Ok(produto);
+                    return Ok(cliente);
                 }
             }
             catch (Exception ex)
             {
-                return BadRequest($"Erro ao salvar o Produto: {ex.Message}");
+                return BadRequest($"Erro ao salvar o Cliente: {ex.Message}");
             }
             return BadRequest();
         }
 
-        [HttpPut("{produtoId}")]
-        public async Task<IActionResult> Put(int produtoId, Produto produto)
+        [HttpPut("{clienteId}")]
+        public async Task<IActionResult> Put(int clienteId, Cliente cliente)
         {
             try
             {
-                var produtoCadastrado = await _repositorio.GetProdutoAsyncById(produtoId);
+                var clienteCadastrado = await _repositorio.GetClienteAsyncById(clienteId);
 
-                if (produtoCadastrado == null)
+                if (clienteCadastrado == null)
                 {
                     return NotFound();
                 }
 
-                _repositorio.Update(produto);
+                _repositorio.Update(cliente);
                 if (await _repositorio.SaveChangesAsync())
                 {
-                    return Ok(produto);
+                    return Ok(cliente);
                 }
             }
             catch (Exception ex)
             {
-                return BadRequest($"Erro ao editar o Produto: {ex.Message}");
+                return BadRequest($"Erro ao editar o cliente: {ex.Message}");
             }
             return BadRequest();
         }
 
-        [HttpDelete("{produtoId}")]
-        public async Task<IActionResult> Delete(int produtoId)
+        [HttpDelete("{clienteId}")]
+        public async Task<IActionResult> Delete(int clienteId)
         {
             try
             {
-                var produtoCadastrado = await _repositorio.GetProdutoAsyncById(produtoId);
-                if (produtoCadastrado == null)
+                var clienteCadastrado = await _repositorio.GetClienteAsyncById(clienteId);
+                if (clienteCadastrado == null)
                 {
                     return NotFound();
                 }
 
-                _repositorio.Delete(produtoCadastrado);
+                _repositorio.Delete(clienteCadastrado);
                 if (await _repositorio.SaveChangesAsync())
                 {
                     return Ok(
                          new
                          {
-                             message = "Produto removido com sucesso"
+                             message = "Cliente removido com sucesso"
                          }
                     );
                 }
             }
             catch (Exception ex)
             {
-                return BadRequest($"Erro ao deletar o Produto: {ex.Message}");
+                return BadRequest($"Erro ao deletar o cliente: {ex.Message}");
             }
             return BadRequest();
         }

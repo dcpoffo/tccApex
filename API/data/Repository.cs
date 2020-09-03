@@ -51,7 +51,21 @@ namespace API.data
                return await query.FirstOrDefaultAsync();
           }
 
+          public async Task<Cliente[]> GetAllClientesAsync()
+          {
+               IQueryable<Cliente> query = _context.Cliente;
+               query = query.AsNoTracking().OrderBy(a => a.Id);
 
+               return await query.ToArrayAsync();
+          }
+          
+          public async Task<Cliente> GetClienteAsyncById(int clienteId)
+          {
+               IQueryable<Cliente> query = _context.Cliente;
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.Id == clienteId);
 
+               return await query.FirstOrDefaultAsync();
+          }
      }
 }

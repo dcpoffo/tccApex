@@ -12,16 +12,16 @@ export class ProdutoCrudComponent implements OnInit {
   constructor(private router: Router, private headerService: HeaderService) {
     headerService.headerData = {
       title: 'Cadastro de Produtos',
-      icon: 'storefront',
+      icon: 'construction',
       routeUrl: '/products'
-    }
+    };
   }
 
   ngOnInit() {
   }
 
-  navegarParaProdutoCriar(): void {
-    this.router.navigate(['/produtos/create'])
+  novoProduto(): void {
+    this.router.navigate(['/produtos/create']);
   }
 
 }

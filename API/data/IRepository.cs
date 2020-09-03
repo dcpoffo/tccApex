@@ -12,7 +12,13 @@ namespace API.data
         void Delete<T>(T entity) where T : class;
         Task<bool> SaveChangesAsync();
 
+        //dados dos produtos
         Task<Produto[]> GetAllProdutosAsync();
-        Task<Produto> GetProdutoAsyncById(int produtoId);        
+        Task<Produto> GetProdutoAsyncById(int produtoId);     
+
+        //dados dos clientes
+        Task<Cliente[]> GetAllClientesAsync();
+        Task<Cliente> GetClienteAsyncById(int clienteId);
+
     }
 }

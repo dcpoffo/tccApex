@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produto';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-produto-update',
@@ -9,6 +10,8 @@ import { ProdutoService } from 'src/app/services/produto.service';
   styleUrls: ['./produto-update.component.scss']
 })
 export class ProdutoUpdateComponent implements OnInit {
+
+  public erro = new FormControl('', [Validators.required]);
 
   produto: Produto;
 

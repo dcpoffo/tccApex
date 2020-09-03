@@ -10,6 +10,7 @@ namespace API.data
         {}
 
         public DbSet<Produto> Produto { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -19,6 +20,12 @@ namespace API.data
                    new Produto(2, "Cabo PP Circular 3x0,50 NBR247","Metro"),
                    new Produto(3, "Cabo Techflex 1x0,50 NBR9117 - BR","Metro"),
                    new Produto(4, "Cabo Techflex 1x0,75 DIN - PT","Metro"),
+                });
+
+            builder.Entity<Cliente>()
+                .HasData(new List<Cliente>(){
+                   new Cliente(1, "Thor"),
+                   new Cliente(2, "Howe"),                   
                 });
         }
     }
