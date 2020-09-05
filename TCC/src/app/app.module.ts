@@ -11,28 +11,25 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
 
-// produto
+
 import { ProdutoCrudComponent } from './views/produto-crud/produto-crud.component';
 import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
 import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
 
-// cliente
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component';
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-read.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 
-// produto
 import { ProblemaCrudComponent } from './views/problema-crud/problema-crud.component';
 import { ProblemaCreateComponent } from './components/problema/problema-create/problema-create.component';
 import { ProblemaReadComponent } from './components/problema/problema-read/problema-read.component';
 import { ProblemaUpdateComponent } from './components/problema/problema-update/problema-update.component';
 import { ProblemaDeleteComponent } from './components/problema/problema-delete/problema-delete.component';
 
-// nao conformidades
 import { NaoConformidadeCrudComponent } from './views/naoConformidade-crud/naoConformidade-crud.component';
 import { NaoCorformidadeCreateComponent } from './components/naoConformidade/naoCorformidade-create/naoCorformidade-create.component';
 import { NaoConformidadeReadComponent } from './components/naoConformidade/naoConformidade-read/naoConformidade-read.component';
@@ -48,7 +45,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -94,7 +91,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

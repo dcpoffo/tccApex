@@ -14,7 +14,7 @@
 
         <ng-container matColumnDef="produto">
             <th mat-header-cell *matHeaderCellDef>Produto</th>
-            <td mat-cell *matCellDef="let row">{{row.produtoId}}</td>
+            <td mat-cell *matCellDef="let row">{{row.produto.descricao}}</td>
         </ng-container>
 
         <ng-container matColumnDef="quantidade">
@@ -24,12 +24,12 @@
 
         <ng-container matColumnDef="problema">
             <th mat-header-cell *matHeaderCellDef>Problema</th>
-            <td mat-cell *matCellDef="let row">{{row.problemaId}}</td>
+            <td mat-cell *matCellDef="let row">{{row.problema.descricao}}</td>
         </ng-container>
 
         <ng-container matColumnDef="cliente">
             <th mat-header-cell *matHeaderCellDef>Cliente</th>
-            <td mat-cell *matCellDef="let row">{{row.clienteId}}</td>
+            <td mat-cell *matCellDef="let row">{{row.cliente.nome}}</td>
         </ng-container>
 
         <ng-container matColumnDef="acoes">

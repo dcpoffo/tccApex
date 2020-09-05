@@ -85,9 +85,25 @@ namespace API.data
                return await query.FirstOrDefaultAsync();
           }
 
-          public async Task<NaoConformidade[]> GetAllNaoConformidadesAsync()
+          public async Task<NaoConformidade[]> GetAllNaoConformidadesAsync(bool incluirProduto, bool incluirCliente, bool incluirProblema)
           {
                IQueryable<NaoConformidade> query = _context.NaoConformidade;
+
+               if (incluirProduto)
+               {
+                    query = query.Include(prod => prod.Produto);
+               }
+
+               if (incluirCliente)
+               {
+                   query = query.Include(cli => cli.Cliente);
+               }
+
+               if (incluirProblema)
+               {
+                   query = query.Include(prob => prob.Problema);
+               }
+
                query = query.AsNoTracking().OrderBy(a => a.Id);
 
                return await query.ToArrayAsync();

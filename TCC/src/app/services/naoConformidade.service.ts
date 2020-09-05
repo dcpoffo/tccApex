@@ -56,7 +56,7 @@ export class NaoConformidadeService {
     );
   }
 
-  delete(id: number): Observable<NaoConformidade> {
+ delete(id: number): Observable<NaoConformidade> {
     const url = `${this.baseURL}/${id}`;
     return this.http.delete<NaoConformidade>(url).pipe(
       map((obj) => obj),
@@ -65,6 +65,7 @@ export class NaoConformidadeService {
   }
 
   errorHandler(e: any): Observable<any> {
+    console.log(e);
     this.showMessage('Ocorreu um erro com o módulo Não Conformidade!', true);
     return EMPTY;
   }

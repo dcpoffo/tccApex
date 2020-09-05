@@ -1,3 +1,30 @@
-<p>
-  naoConformidade-update works!
-</p>
+<div>
+  <mat-card>
+      <mat-card-title>Alteração de Não Conformidade</mat-card-title>
+      <form>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Não Conformidade</mat-label>
+          <input matInput [(ngModel)]="naoConformidade.id" name="id" disabled>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Data Abertura</mat-label>
+              <input matInput placeholder="Data Abertura" [(ngModel)]="naoConformidade.dataAbertura" name="dataAbertura" disabled>
+          </mat-form-field>
+        </div>
+
+
+      </form>
+
+      <button mat-raised-button (click)="atualizarNaoConformidade()" color="primary">
+  Atualizar
+</button>
+
+      <button mat-raised-button (click)="cancelar()">Cancelar </button>
+
+  </mat-card>
+</div>
+

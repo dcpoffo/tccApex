@@ -25,7 +25,7 @@ namespace API.data
           Task<Problema> GetProblemaAsyncById(int problemaId);
 
           //dadods das Nao conformidades
-          Task<NaoConformidade[]> GetAllNaoConformidadesAsync();
+          Task<NaoConformidade[]> GetAllNaoConformidadesAsync(bool incluirProduto, bool incluirCliente, bool incluirProblema);
           Task<NaoConformidade> GetNaoConformidadeAsyncById(int naoConformidadeId);
      }
 }

@@ -6,24 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-     [ApiController]
-     [Route("[controller]")]
+    [ApiController]
+    [Route("[controller]")]
 
-     public class NaoConformidadeController : ControllerBase
-     {
-          private readonly IRepository _repositorio;
+    public class NaoConformidadeController : ControllerBase
+    {
+        private readonly IRepository _repositorio;
 
-          public NaoConformidadeController(IRepository repositorio)
-          {
-               this._repositorio = repositorio;
-          }
+        public NaoConformidadeController(IRepository repositorio)
+        {
+            this._repositorio = repositorio;
+        }
 
-          [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             try
             {
-                var result = await _repositorio.GetAllNaoConformidadesAsync();
+                var result = await _repositorio.GetAllNaoConformidadesAsync(true, true, true);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -118,5 +118,5 @@ namespace API.Controllers
             return BadRequest();
         }
 
-     }
+    }
 }
