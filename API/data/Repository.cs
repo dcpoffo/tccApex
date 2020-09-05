@@ -67,5 +67,39 @@ namespace API.data
 
                return await query.FirstOrDefaultAsync();
           }
+
+          public async Task<Problema[]> GetAllProblemasAsync()
+          {
+               IQueryable<Problema> query = _context.Problema;
+               query = query.AsNoTracking().OrderBy(a => a.Id);
+
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<Problema> GetProblemaAsyncById(int problemaId)
+          {
+               IQueryable<Problema> query = _context.Problema;
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.Id == problemaId);
+
+               return await query.FirstOrDefaultAsync();
+          }
+
+          public async Task<NaoConformidade[]> GetAllNaoConformidadesAsync()
+          {
+               IQueryable<NaoConformidade> query = _context.NaoConformidade;
+               query = query.AsNoTracking().OrderBy(a => a.Id);
+
+               return await query.ToArrayAsync();
+          }
+
+          public async Task<NaoConformidade> GetNaoConformidadeAsyncById(int naoConformidadeId)
+          {
+               IQueryable<NaoConformidade> query = _context.NaoConformidade;
+               query = query.AsNoTracking().OrderBy(a => a.Id)
+                                           .Where(a => a.Id == naoConformidadeId);
+
+               return await query.FirstOrDefaultAsync();
+          }
      }
 }

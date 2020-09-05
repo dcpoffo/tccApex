@@ -25,6 +25,20 @@ import { ClienteReadComponent } from './components/cliente/cliente-read/cliente-
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 
+// produto
+import { ProblemaCrudComponent } from './views/problema-crud/problema-crud.component';
+import { ProblemaCreateComponent } from './components/problema/problema-create/problema-create.component';
+import { ProblemaReadComponent } from './components/problema/problema-read/problema-read.component';
+import { ProblemaUpdateComponent } from './components/problema/problema-update/problema-update.component';
+import { ProblemaDeleteComponent } from './components/problema/problema-delete/problema-delete.component';
+
+// nao conformidades
+import { NaoConformidadeCrudComponent } from './views/naoConformidade-crud/naoConformidade-crud.component';
+import { NaoCorformidadeCreateComponent } from './components/naoConformidade/naoCorformidade-create/naoCorformidade-create.component';
+import { NaoConformidadeReadComponent } from './components/naoConformidade/naoConformidade-read/naoConformidade-read.component';
+import { NaoConformidadeUpdateComponent } from './components/naoConformidade/naoConformidade-update/naoConformidade-update.component';
+import { NaoConformidadeDeleteComponent } from './components/naoConformidade/naoConformidade-delete/naoConformidade-delete.component';
+
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -52,7 +66,17 @@ import { MatButtonModule } from '@angular/material/button';
     ClienteCreateComponent,
     ClienteReadComponent,
     ClienteUpdateComponent,
-    ClienteDeleteComponent
+    ClienteDeleteComponent,
+    ProblemaCrudComponent,
+    ProblemaCreateComponent,
+    ProblemaReadComponent,
+    ProblemaUpdateComponent,
+    ProblemaDeleteComponent,
+    NaoConformidadeCrudComponent,
+    NaoCorformidadeCreateComponent,
+    NaoConformidadeReadComponent,
+    NaoConformidadeUpdateComponent,
+    NaoConformidadeDeleteComponent
   ],
 
   imports: [

@@ -6,6 +6,7 @@ namespace API.models
      {
           public int Id { get; set; }
           public string Nome { get; set; }
+          public IEnumerable<NaoConformidade> NaoCorformidades { get; set; }
 
           public Cliente()
           {}

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace API.models
 {
     public class Produto
@@ -5,6 +7,7 @@ namespace API.models
         public int Id { get; set; }
         public string Descricao { get; set; }
         public string UnidadeMedida { get; set; }
+        public IEnumerable<NaoConformidade> NaoCorformidades { get; set; }
 
         public Produto()
         {}

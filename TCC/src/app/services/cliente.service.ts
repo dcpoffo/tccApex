@@ -65,7 +65,7 @@ export class ClienteService {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro!', true);
+    this.showMessage('Ocorreu um erro  com o módulo Cliente!', true);
     return EMPTY;
   }
 }
