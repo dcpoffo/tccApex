@@ -5431,11 +5431,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj",
+      "projectUniqueName": "D:\\SISTEMAS\\CSharp\\Apex\\TCC-NaoConformidades\\backend\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\API.csproj",
+      "projectPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC-NaoConformidades\\backend\\API.csproj",
       "packagesPath": "C:\\Users\\dcpof\\.nuget\\packages\\",
-      "outputPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC\\API\\obj\\",
+      "outputPath": "D:\\SISTEMAS\\CSharp\\Apex\\TCC-NaoConformidades\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dcpof\\AppData\\Roaming\\NuGet\\NuGet.Config",
