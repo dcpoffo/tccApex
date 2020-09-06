@@ -3,13 +3,13 @@
     <table mat-table [dataSource]="naoConformidades">
 
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <th mat-header-cell *matHeaderCellDef>R.N.C.</th>
             <td mat-cell *matCellDef="let row">{{row.id}}</td>
         </ng-container>
 
         <ng-container matColumnDef="dataAbertura">
             <th mat-header-cell *matHeaderCellDef>Data Abertura</th>
-            <td mat-cell *matCellDef="let row">{{row.dataAbertura}}</td>
+            <td mat-cell *matCellDef="let row">{{row.dataAbertura | date: 'dd/MM/yyyy'}}</td>
         </ng-container>
 
         <ng-container matColumnDef="produto">

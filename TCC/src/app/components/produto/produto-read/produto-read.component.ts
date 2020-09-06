@@ -12,7 +12,9 @@ export class ProdutoReadComponent implements OnInit {
   produtos: Produto[]
   displayedColumns = ['id', 'descricao', 'unidadeMedida', 'acoes']
 
-  constructor(private produtoServico: ProdutoService) { }
+  constructor(
+    private produtoServico: ProdutoService
+  ) { }
 
   ngOnInit() {
     this.produtoServico.getAll().subscribe(produtos => {

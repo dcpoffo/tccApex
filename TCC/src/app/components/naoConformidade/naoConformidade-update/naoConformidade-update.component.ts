@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { NaoConformidade } from './../../../models/NaoConformidade';
 import { Component, OnInit } from '@angular/core';
 import { NaoConformidadeService } from 'src/app/services/naoConformidade.service';
@@ -15,7 +16,8 @@ export class NaoConformidadeUpdateComponent implements OnInit {
   constructor(
     private naoConformidadeServico: NaoConformidadeService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private mesagemServico: MensagemService
   ) { }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class NaoConformidadeUpdateComponent implements OnInit {
 
   atualizarNaoConformidade(): void {
     this.naoConformidadeServico.put(this.naoConformidade).subscribe(() => {
-      this.naoConformidadeServico.showMessage('Não Conformidade atualizada com sucesso!');
+      this.mesagemServico.showMessage('Não Conformidade atualizada com sucesso!');
       this.router.navigate(['/naoConformidades']);
     });
   }

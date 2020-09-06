@@ -1,3 +1,4 @@
+import { MensagemService } from './mensagem.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -15,16 +16,8 @@ export class ProblemaService {
 
   constructor(
     private http: HttpClient,
-    private snackBar: MatSnackBar) { }
-
-  showMessage(msg: string, isError: boolean = false): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: isError ? ['msg-error'] : ['msg-success'],
-    });
-  }
+    private mensagemServico: MensagemService
+  ) { }
 
   getAll(): Observable<Problema[]> {
     return this.http.get<Problema[]>(this.baseURL).pipe(
@@ -65,7 +58,7 @@ export class ProblemaService {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro com o módulo Problema!', true);
+    this.mensagemServico.showMessage('Ocorreu um erro com o módulo Problema!', true);
     return EMPTY;
   }
 

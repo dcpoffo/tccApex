@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Problema } from 'src/app/models/Problema';
 import { Router } from '@angular/router';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-problema-create',
@@ -17,15 +18,18 @@ export class ProblemaCreateComponent implements OnInit {
     descricao: ''
   }
 
-  constructor(private problemaServico: ProblemaService,
-              private router: Router) {}
+  constructor(
+    private problemaServico: ProblemaService,
+    private router: Router,
+    private mensagemServico: MensagemService
+  ) { }
 
   ngOnInit() {
   }
 
   cadastrarCliente(): void {
     this.problemaServico.post(this.problema).subscribe(() => {
-      this.problemaServico.showMessage('Problema cadastrado com sucesso!')
+      this.mensagemServico.showMessage('Problema cadastrado com sucesso!')
       this.router.navigate(['/problemas']);
     });
   }

@@ -12,7 +12,9 @@ export class ProblemaReadComponent implements OnInit {
   problemas: Problema[]
   displayedColumns = ['id', 'descricao', 'acoes'];
 
-  constructor(private problemaServico: ProblemaService) { }
+  constructor(
+    private problemaServico: ProblemaService
+  ) { }
 
   ngOnInit() {
     this.problemaServico.getAll().subscribe(problemas => {

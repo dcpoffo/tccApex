@@ -12,7 +12,9 @@ export class ClienteReadComponent implements OnInit {
   clientes: Cliente[]
   displayedColumns = ['id', 'nome', 'acoes'];
 
-  constructor(private clienteServico: ClienteService) { }
+  constructor(
+    private clienteServico: ClienteService
+  ) { }
 
   ngOnInit() {
     this.clienteServico.getAll().subscribe(clientes => {

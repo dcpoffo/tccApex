@@ -12,7 +12,9 @@ export class NaoConformidadeReadComponent implements OnInit {
   naoConformidades: NaoConformidade[]
   displayedColumns = ['id', 'dataAbertura', 'produto', 'quantidade', 'problema', 'cliente', 'acoes'];
 
-  constructor(private naoConformidadeServico: NaoConformidadeService) { }
+  constructor(
+    private naoConformidadeServico: NaoConformidadeService
+  ) { }
 
   ngOnInit() {
     this.naoConformidadeServico.getAll().subscribe(naoConformidades => {

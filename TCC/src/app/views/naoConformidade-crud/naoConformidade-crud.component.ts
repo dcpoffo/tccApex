@@ -9,7 +9,10 @@ import { HeaderService } from 'src/app/components/template/header/header.service
 })
 export class NaoConformidadeCrudComponent implements OnInit {
 
-  constructor(private router: Router, private headerService: HeaderService) {
+  constructor(
+    private router: Router,
+    private headerService: HeaderService
+  ) {
     headerService.headerData = {
       title: 'Cadastro de Não Conformidades',
       icon: 'bug_report',

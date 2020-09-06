@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProdutoService } from './../../../services/produto.service';
 import { Produto } from './../../../models/Produto';
@@ -14,6 +15,7 @@ export class ProdutoDeleteComponent implements OnInit {
 
   constructor(
     private produtoServico: ProdutoService,
+    private mensagemServico: MensagemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -27,7 +29,7 @@ export class ProdutoDeleteComponent implements OnInit {
 
   apagarProduto(): void {
     this.produtoServico.delete(this.produto.id).subscribe(() => {
-      this.produtoServico.showMessage('Produto excluido com sucesso!');
+      this.mensagemServico.showMessage('Produto excluido com sucesso!');
       this.router.navigate(['/produtos']);
     });
   }

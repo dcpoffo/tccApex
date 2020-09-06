@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { Produto } from 'src/app/models/Produto';
 import { Component, OnInit } from '@angular/core';
@@ -18,15 +19,18 @@ export class ProdutoCreateComponent implements OnInit {
     unidadeMedida: ''
   }
 
-  constructor(private produtoServico: ProdutoService,
-              private router: Router) {}
+  constructor(
+    private produtoServico: ProdutoService,
+    private mensagemServico: MensagemService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   criarProduto(): void {
     this.produtoServico.post(this.produto).subscribe(() => {
-      this.produtoServico.showMessage('Produto criado com sucesso!')
+      this.mensagemServico.showMessage('Produto criado com sucesso!')
       this.router.navigate(['/produtos'])
     })
   }

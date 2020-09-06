@@ -1,3 +1,4 @@
+import { MensagemService } from './mensagem.service';
 import { Produto } from 'src/app/models/Produto';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
@@ -13,17 +14,10 @@ export class ProdutoService {
 
   baseURL = `${environment.mainUrlAPI}produto`;
 
-  constructor(private http: HttpClient,
-              private snackBar: MatSnackBar) { }
-
-  showMessage(msg: string, isError: boolean = false): void{
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: isError ? ['msg-error'] : ['msg-success'],
-    })
-  }
+  constructor(
+    private http: HttpClient,
+    private mensagemServico: MensagemService
+  ) { }
 
   getAll(): Observable<Produto[]> {
     return this.http.get<Produto[]>(this.baseURL).pipe(
@@ -64,7 +58,7 @@ export class ProdutoService {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro com o módulo Produto!', true);
+    this.mensagemServico.showMessage('Ocorreu um erro com o módulo Produto!', true);
     return EMPTY;
   }
 

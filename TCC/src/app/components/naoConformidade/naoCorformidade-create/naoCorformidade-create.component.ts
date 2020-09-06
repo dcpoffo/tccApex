@@ -6,10 +6,11 @@ import { NaoConformidade } from './../../../models/NaoConformidade';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NaoConformidadeService } from 'src/app/services/naoConformidade.service';
-import {Component, OnInit} from '@angular/core';
-import {formatDate } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { formatDate } from '@angular/common';
 import { Produto } from 'src/app/models/Produto';
 import { Cliente } from 'src/app/models/Cliente';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-naoCorformidade-create',
@@ -30,11 +31,14 @@ export class NaoCorformidadeCreateComponent implements OnInit {
     problemaId: 0,
   };
 
-  constructor(private naoConformidadeServico: NaoConformidadeService,
-              private produtoServico: ProdutoService,
-              private clienteServico: ClienteService,
-              private problemaServico: ProblemaService,
-              private router: Router) {}
+  constructor(
+    private naoConformidadeServico: NaoConformidadeService,
+    private produtoServico: ProdutoService,
+    private clienteServico: ClienteService,
+    private problemaServico: ProblemaService,
+    private router: Router,
+    private mensagemServico: MensagemService
+  ) { }
 
   ngOnInit() {
     this.carregarProdutos();
@@ -63,7 +67,7 @@ export class NaoCorformidadeCreateComponent implements OnInit {
   criarNaoConformidade(): void {
     console.log(this.naoConformidade);
     this.naoConformidadeServico.post(this.naoConformidade).subscribe(() => {
-      this.naoConformidadeServico.showMessage('Não Conformidade criada com sucesso!')
+      this.mensagemServico.showMessage('Não Conformidade criada com sucesso!')
       this.router.navigate(['/naoConformidades']);
     });
   }

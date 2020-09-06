@@ -2,6 +2,7 @@ import { ProblemaService } from './../../../services/problema.service';
 import { Problema } from './../../../models/Problema';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-problema-delete',
@@ -15,7 +16,8 @@ export class ProblemaDeleteComponent implements OnInit {
   constructor(
     private problemaServico: ProblemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private mensagemServico: MensagemService
   ) { }
 
   ngOnInit() {
@@ -27,7 +29,7 @@ export class ProblemaDeleteComponent implements OnInit {
 
   apagarProblema(): void {
     this.problemaServico.delete(this.problema.id).subscribe(() => {
-      this.problemaServico.showMessage('Problema excluido com sucesso!');
+      this.mensagemServico.showMessage('Problema excluido com sucesso!');
       this.router.navigate(['/problemas']);
     });
   }

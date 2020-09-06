@@ -8,7 +8,9 @@ import { HeaderService } from 'src/app/components/template/header/header.service
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private headerService: HeaderService) {
+  constructor(
+    private headerService: HeaderService
+  ) {
     headerService.headerData = {
       title: 'Início',
       icon: 'home',

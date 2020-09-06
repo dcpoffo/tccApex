@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { Cliente } from './../../../models/Cliente';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClienteService } from './../../../services/cliente.service';
@@ -17,6 +18,7 @@ export class ClienteUpdateComponent implements OnInit {
 
   constructor(
     private clienteServico: ClienteService,
+    private mensagemServico: MensagemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -31,7 +33,8 @@ export class ClienteUpdateComponent implements OnInit {
 
   atualizarCliente(): void {
     this.clienteServico.put(this.cliente).subscribe(() => {
-      this.clienteServico.showMessage('Cliente atualizado com sucesso!');
+      this.mensagemServico.showMessage('Cliente atualizado com sucesso!');
+
       this.router.navigate(['/clientes']);
     });
   }

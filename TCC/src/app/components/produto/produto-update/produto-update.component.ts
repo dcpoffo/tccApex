@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produto';
@@ -17,6 +18,7 @@ export class ProdutoUpdateComponent implements OnInit {
 
   constructor(
     private produtoServico: ProdutoService,
+    private mensagemServico: MensagemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -31,7 +33,7 @@ export class ProdutoUpdateComponent implements OnInit {
 
   atualizarProduto(): void {
     this.produtoServico.put(this.produto).subscribe(() => {
-      this.produtoServico.showMessage('Produto atualizado com sucesso!');
+      this.mensagemServico.showMessage('Produto atualizado com sucesso!');
       this.router.navigate(['/produtos']);
     });
   }

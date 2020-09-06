@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteCrudComponent implements OnInit {
 
-  constructor(private router: Router, private headerService: HeaderService) {
+  constructor(
+    private router: Router,
+    private headerService: HeaderService
+  ) {
     headerService.headerData = {
       title: 'Cadastro de Clientes',
       icon: 'person',

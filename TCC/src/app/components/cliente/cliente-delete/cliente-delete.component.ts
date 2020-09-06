@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { Cliente } from './../../../models/Cliente';
 import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,7 @@ export class ClienteDeleteComponent implements OnInit {
 
   constructor(
     private clienteServico: ClienteService,
+    private mensagemServico: MensagemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -27,7 +29,8 @@ export class ClienteDeleteComponent implements OnInit {
 
   apagarCliente(): void {
     this.clienteServico.delete(this.cliente.id).subscribe(() => {
-      this.clienteServico.showMessage('Cliente excluido com sucesso!');
+      this.mensagemServico.showMessage('Cliente excluido com sucesso!');
+
       this.router.navigate(['/clientes']);
     });
   }

@@ -3,6 +3,7 @@ import { Problema } from './../../../models/Problema';
 import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProblemaService } from 'src/app/services/problema.service';
+import { MensagemService } from 'src/app/services/mensagem.service';
 
 @Component({
   selector: 'app-problema-update',
@@ -18,7 +19,8 @@ export class ProblemaUpdateComponent implements OnInit {
   constructor(
     private problemaServico: ProblemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private mensagemServico: MensagemService
   ) { }
 
   ngOnInit() {
@@ -31,7 +33,7 @@ export class ProblemaUpdateComponent implements OnInit {
 
   atualizarProblema(): void {
     this.problemaServico.put(this.problema).subscribe(() => {
-      this.problemaServico.showMessage('Problema atualizado com sucesso!');
+      this.mensagemServico.showMessage('Problema atualizado com sucesso!');
       this.router.navigate(['/problemas']);
     });
   }

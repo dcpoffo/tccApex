@@ -1,3 +1,4 @@
+import { MensagemService } from './../../../services/mensagem.service';
 import { Router } from '@angular/router';
 import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,15 +18,18 @@ export class ClienteCreateComponent implements OnInit {
     nome: ''
   }
 
-  constructor(private clienteServico: ClienteService,
-              private router: Router) {}
+  constructor(
+    private clienteServico: ClienteService,
+    private mensagemServico: MensagemService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   criarCliente(): void {
     this.clienteServico.post(this.cliente).subscribe(() => {
-      this.clienteServico.showMessage('Cliente criado com sucesso!')
+      this.mensagemServico.showMessage('Cliente criado com sucesso!')
       this.router.navigate(['/clientes']);
     });
   }
