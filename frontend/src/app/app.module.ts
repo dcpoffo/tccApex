@@ -11,7 +11,6 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/template/nav/nav.component';
 
-
 import { ProdutoCrudComponent } from './views/produto-crud/produto-crud.component';
 import { ProdutoReadComponent } from './components/produto/produto-read/produto-read.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
@@ -46,6 +45,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -92,9 +93,16 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+
+,  ],
+  providers: [
+    MatFormFieldModule,
+    MatDatepickerModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

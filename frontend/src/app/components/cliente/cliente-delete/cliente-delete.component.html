@@ -1,17 +1,19 @@
 <div>
     <mat-card>
-        <mat-card-title>Excluir Cliente</mat-card-title>
+        <mat-card-title>Deseja realmente excluir este Cliente?</mat-card-title>
         <form>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <input matInput placeholder="Nome do Cliente" [value]="cliente.nome" name="nome" disabled>
             </mat-form-field>
         </form>
-        <button mat-raised-button (click)="apagarCliente()" color="warn">
-    Excluir
-</button>
+        <mat-card-actions>
+            <button mat-raised-button (click)="apagarCliente()" color="warn">
+        Excluir
+      </button>
 
-        <button mat-raised-button (click)="cancelar()">
-    Cancelar
-</button>
+            <button mat-raised-button (click)="cancelar()">
+        Cancelar
+      </button>
+        </mat-card-actions>
     </mat-card>
 </div>

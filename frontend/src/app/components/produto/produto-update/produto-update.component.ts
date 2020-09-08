@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produto';
 import { ProdutoService } from 'src/app/services/produto.service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-produto-update',
@@ -12,7 +12,10 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ProdutoUpdateComponent implements OnInit {
 
-  public erro = new FormControl('', [Validators.required]);
+  produtoForm = new FormGroup({
+    descricao: new FormControl('', [Validators.required]),
+    unidadeMedida: new FormControl('', [Validators.required])
+  });
 
   produto: Produto;
 

@@ -1,17 +1,19 @@
 <div>
     <mat-card>
-        <mat-card-title>Excluir Problema</mat-card-title>
+        <mat-card-title>Deseja realmente excluir este Problema?</mat-card-title>
         <form>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <input matInput placeholder="Descrição do Problema" [value]="problema.descricao" name="descricao" disabled>
             </mat-form-field>
         </form>
-        <button mat-raised-button (click)="apagarProblema()" color="warn">
-  Excluir
-</button>
+        <mat-card-actions appearance="outline">
+            <button mat-raised-button (click)="apagarProblema()" color="warn">
+        Excluir
+      </button>
 
-        <button mat-raised-button (click)="cancelar()">
-  Cancelar
-</button>
+            <button mat-raised-button (click)="cancelar()">
+        Cancelar
+      </button>
+        </mat-card-actions>
     </mat-card>
 </div>

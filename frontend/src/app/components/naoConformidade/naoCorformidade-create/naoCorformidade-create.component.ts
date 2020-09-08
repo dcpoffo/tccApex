@@ -3,11 +3,10 @@ import { ClienteService } from './../../../services/cliente.service';
 import { Problema } from 'src/app/models/Problema';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { NaoConformidade } from './../../../models/NaoConformidade';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NaoConformidadeService } from 'src/app/services/naoConformidade.service';
 import { Component, OnInit } from '@angular/core';
-import { formatDate } from '@angular/common';
 import { Produto } from 'src/app/models/Produto';
 import { Cliente } from 'src/app/models/Cliente';
 import { MensagemService } from 'src/app/services/mensagem.service';
@@ -18,6 +17,17 @@ import { MensagemService } from 'src/app/services/mensagem.service';
   styleUrls: ['./naoCorformidade-create.component.scss']
 })
 export class NaoCorformidadeCreateComponent implements OnInit {
+
+  ncForm = new FormGroup ({
+    //quantidade: new FormControl('', Validators.required)
+  });
+
+  // naoConformidadeForm = new FormGroup({
+  //   id: new FormControl(''),
+  //   clienteId: new FormControl('', [Validators.required]),
+  //   produtoId: new FormControl('', [Validators.required]),
+  //   problemaId: new FormControl('', [Validators.required]),
+  // });
 
   produtos: Produto[];
   clientes: Cliente[];

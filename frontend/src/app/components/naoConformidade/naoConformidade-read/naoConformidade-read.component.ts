@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class NaoConformidadeReadComponent implements OnInit {
 
   naoConformidades: NaoConformidade[]
-  displayedColumns = ['id', 'dataAbertura', 'produto', 'quantidade', 'problema', 'cliente', 'acoes'];
+  displayedColumns = ['id', 'dataAbertura', 'cliente', 'produto', 'quantidade', 'problema', 'acoes'];
 
   constructor(
     private naoConformidadeServico: NaoConformidadeService

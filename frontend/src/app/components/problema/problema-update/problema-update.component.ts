@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Problema } from './../../../models/Problema';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProblemaService } from 'src/app/services/problema.service';
 import { MensagemService } from 'src/app/services/mensagem.service';
@@ -12,7 +12,9 @@ import { MensagemService } from 'src/app/services/mensagem.service';
 })
 export class ProblemaUpdateComponent implements OnInit {
 
-  public erro = new FormControl('', [Validators.required]);
+  problemaForm = new FormGroup({
+    descricao: new FormControl('', [Validators.required])
+  });
 
   problema: Problema;
 

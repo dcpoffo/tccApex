@@ -12,6 +12,11 @@
             <td mat-cell *matCellDef="let row">{{row.dataAbertura | date: 'dd/MM/yyyy'}}</td>
         </ng-container>
 
+        <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef>Cliente</th>
+            <td mat-cell *matCellDef="let row">{{row.cliente.nome}}</td>
+        </ng-container>
+
         <ng-container matColumnDef="produto">
             <th mat-header-cell *matHeaderCellDef>Produto</th>
             <td mat-cell *matCellDef="let row">{{row.produto.descricao}}</td>
@@ -27,23 +32,16 @@
             <td mat-cell *matCellDef="let row">{{row.problema.descricao}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="cliente">
-            <th mat-header-cell *matHeaderCellDef>Cliente</th>
-            <td mat-cell *matCellDef="let row">{{row.cliente.nome}}</td>
-        </ng-container>
-
         <ng-container matColumnDef="acoes">
             <th mat-header-cell *matHeaderCellDef>Ações</th>
+
             <td mat-cell *matCellDef="let row">
                 <a routerLink="/naoConformidades/update/{{ row.id }}" class="edit">
-                    <i class="material-icons">
-            edit
-          </i>
+                    <i class="material-icons">edit</i>
                 </a>
+
                 <a routerLink="/naoConformidades/delete/{{ row.id }}" class="delete">
-                    <i class="material-icons">
-            delete
-          </i>
+                    <i class="material-icons">delete </i>
                 </a>
             </td>
         </ng-container>

@@ -3,7 +3,7 @@ import { Cliente } from './../../../models/Cliente';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cliente-update',
@@ -12,7 +12,9 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ClienteUpdateComponent implements OnInit {
 
-  public erro = new FormControl('', [Validators.required]);
+  clienteForm = new FormGroup({
+    nome: new FormControl('', [Validators.required])
+  });
 
   cliente: Cliente;
 

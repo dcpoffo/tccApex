@@ -1,18 +1,22 @@
 <mat-card>
-    <mat-card-title>Excluir Produto</mat-card-title>
+    <mat-card-title>Deseja realmente excluir este produto? </mat-card-title>
     <form>
-        <mat-form-field>
+        <div>
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Id" [value]="produto.id" name="id" disabled>
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
             <input matInput placeholder="Descição" [value]="produto.descricao" name="descricao" disabled>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Unidade Medida" [value]="produto.unidadeMedida" name="unidadeMedida" disabled>
-        </mat-form-field>
     </form>
-    <button mat-raised-button (click)="apagarProduto()" color="warn">
+    <mat-card-actions>
+        <button mat-raised-button (click)="apagarProduto()" color="warn">
       Excluir
-  </button>
+    </button>
 
-    <button mat-raised-button (click)="cancelar()">
+        <button mat-raised-button (click)="cancelar()">
       Cancelar
-  </button>
+    </button>
+    </mat-card-actions>
 </mat-card>

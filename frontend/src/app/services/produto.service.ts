@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, EMPTY } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -13,6 +12,8 @@ import { map, catchError } from 'rxjs/operators';
 export class ProdutoService {
 
   baseURL = `${environment.mainUrlAPI}produto`;
+
+  produtos: Produto[];
 
   constructor(
     private http: HttpClient,
@@ -61,5 +62,4 @@ export class ProdutoService {
     this.mensagemServico.showMessage('Ocorreu um erro com o módulo Produto!', true);
     return EMPTY;
   }
-
 }

@@ -1,11 +1,13 @@
-<mat-card>
-    <mat-card-title>Novo Cliente</mat-card-title>
-    <form>
-        <mat-form-field appearance="outline">
-            <input [formControl]="erro" required matInput placeholder="Nome" [(ngModel)]="cliente.nome" name="nome">
-        </mat-form-field>
-    </form>
-    <button [disabled]="!erro.valid" mat-raised-button (click)="criarCliente()" color="primary"> Salvar </button>
+<div>
+    <mat-card>
+        <mat-card-title>Novo Cliente</mat-card-title>
+        <form [formGroup]="clienteForm">
+            <mat-form-field appearance="outline">
+                <input formControlName="nome" matInput placeholder="Nome" [(ngModel)]="cliente.nome">
+            </mat-form-field>
+        </form>
+        <button [disabled]="!clienteForm.valid" mat-raised-button (click)="criarCliente()" color="primary"> Salvar </button>
 
-    <button mat-raised-button (click)="cancelar()"> Cancelar </button>
-</mat-card>
+        <button mat-raised-button (click)="cancelar()"> Cancelar </button>
+    </mat-card>
+</div>

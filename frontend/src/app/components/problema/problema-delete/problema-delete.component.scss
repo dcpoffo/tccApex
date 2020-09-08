@@ -1,7 +1,12 @@
-div {
-    width: 50%;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-table {
-    width: 100%;
+button {
+    margin: 20px 15px 0px 0px;
+}
+
+div {
+    width: 50%;
 }

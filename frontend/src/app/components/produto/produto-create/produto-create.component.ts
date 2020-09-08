@@ -3,7 +3,7 @@ import { ProdutoService } from 'src/app/services/produto.service';
 import { Produto } from 'src/app/models/Produto';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-produto-create',
@@ -12,21 +12,24 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ProdutoCreateComponent implements OnInit {
 
-  public erro = new FormControl('', [Validators.required]);
+  produtoForm = new FormGroup({
+    descricao: new FormControl('', [Validators.required]),
+    unidadeMedida: new FormControl('', [Validators.required])
+  });
 
   produto: Produto = {
     descricao: '',
     unidadeMedida: ''
-  }
+  };
 
   constructor(
+    private formBuilder: FormBuilder,
     private produtoServico: ProdutoService,
     private mensagemServico: MensagemService,
     private router: Router
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   criarProduto(): void {
     this.produtoServico.post(this.produto).subscribe(() => {

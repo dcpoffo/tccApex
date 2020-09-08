@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/Cliente';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cliente-create',
@@ -12,11 +12,13 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ClienteCreateComponent implements OnInit {
 
-  public erro = new FormControl('', [Validators.required]);
+  clienteForm = new FormGroup({
+    nome: new FormControl('', [Validators.required])
+  });
 
   cliente: Cliente = {
     nome: ''
-  }
+  };
 
   constructor(
     private clienteServico: ClienteService,

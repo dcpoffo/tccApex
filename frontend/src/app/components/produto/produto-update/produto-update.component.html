@@ -1,14 +1,16 @@
 <mat-card>
     <mat-card-title>Alterar Produto</mat-card-title>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Descrição" [(ngModel)]="produto.descricao" name="descricao">
+    <form [formGroup]="produtoForm">
+        <mat-form-field appearance="outline">
+            <input formControlName="descricao" matInput placeholder="Descrição" [(ngModel)]="produto.descricao">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Unidade Medida" [(ngModel)]="produto.unidadeMedida" name="unidadeMedida">
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="outline">
+                <input formControlName="unidadeMedida" matInput placeholder="Unidade Medida" [(ngModel)]="produto.unidadeMedida">
+            </mat-form-field>
+        </div>
     </form>
-    <button mat-raised-button (click)="atualizarProduto()" color="primary">
+    <button [disabled]="!produtoForm.valid" mat-raised-button (click)="atualizarProduto()" color="primary">
       Atualizar
   </button>
 
