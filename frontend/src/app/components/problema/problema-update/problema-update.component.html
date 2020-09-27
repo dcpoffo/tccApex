@@ -1,0 +1,18 @@
+<div>
+    <mat-card>
+        <mat-card-title>Alterar Problema</mat-card-title>
+        <form [formGroup]="problemaForm">
+            <mat-form-field appearance="outline">
+                <input formControlName="descricao" matInput placeholder="Descrição do Problema" [(ngModel)]="problema.descricao">
+            </mat-form-field>
+
+        </form>
+
+        <button [disabled]="!problemaForm.valid" mat-raised-button (click)="atualizarProblema()" color="primary">
+      Atualizar
+    </button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar </button>
+
+    </mat-card>
+</div>

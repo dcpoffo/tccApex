@@ -1,0 +1,58 @@
+<div>
+    <mat-card>
+        <mat-card-title>Alteração de Não Conformidade</mat-card-title>
+        <form [formGroup]="naoConformidadeForm">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>R.N.C.</mat-label>
+                    <input formControlName="id" matInput [(ngModel)]="naoConformidade.id" readonly>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Data Abertura</mat-label>
+                    <input formControlName="dataAbertura" matInput [matDatepicker]="picker" matInput [(ngModel)]="naoConformidade.dataAbertura" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Cliente</mat-label>
+                <mat-select formControlName="cliente" [(ngModel)]="naoConformidade.clienteId">
+                    <mat-option *ngFor="let cliente of clientes" [value]="cliente.id"> {{cliente.nome}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Produto</mat-label>
+                <mat-select formControlName="produto" [(ngModel)]="naoConformidade.produtoId">
+                    <mat-option *ngFor="let produto of produtos" [value]="produto.id"> {{produto.descricao}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Quantidade</mat-label>
+                    <input formControlName="quantidade" matInput [(ngModel)]="naoConformidade.quantidade">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Problema</mat-label>
+                <mat-select formControlName="problema" [(ngModel)]="naoConformidade.problemaId">
+                    <mat-option *ngFor="let problema of problemas" [value]="problema.id"> {{problema.descricao}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+
+        <button [disabled]="!naoConformidadeForm.valid" mat-raised-button (click)="atualizarNaoConformidade()" color="primary">
+      Atualizar
+    </button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar </button>
+
+    </mat-card>
+</div>

@@ -1,0 +1,49 @@
+<mat-card>
+    <mat-card-title>Nova Não Conformidade</mat-card-title>
+    <form [formGroup]="ncForm">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Data Abertura</mat-label>
+                <input matInput [matDatepicker]="picker" matInput [(ngModel)]="naoConformidade.dataAbertura">
+                <!-- [ngModelOptions]="{standalone: true}" -->
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="cliente">
+            <mat-label>Cliente</mat-label>
+            <mat-select [(ngModel)]="naoConformidade.clienteId">
+                <mat-option *ngFor="let cli of clientes" [value]="cli.id"> {{cli.nome}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Produto</mat-label>
+            <mat-select [(ngModel)]="naoConformidade.produtoId">
+                <mat-option *ngFor="let prod of produtos" [value]="prod.id"> {{prod.descricao}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Quantidade</mat-label>
+                <input required type="number" matInput [(ngModel)]="naoConformidade.quantidade" />
+                <!-- formControlName="quantidade" -->
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="cliente">
+            <mat-label>Problema</mat-label>
+            <mat-select [(ngModel)]="naoConformidade.problemaId">
+                <mat-option *ngFor="let prob of problemas" [value]="prob.id"> {{prob.descricao}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+    <!-- [disabled]="!ncForm.valid" -->
+    <button mat-raised-button (click)="criarNaoConformidade()" color="primary">Salvar
+  </button>
+
+    <button mat-raised-button (click)="cancelar()">Cancelar</button>
+</mat-card>
