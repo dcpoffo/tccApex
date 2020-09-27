@@ -78,6 +78,16 @@ getAll(): Observable<Cliente[]> {
     catchError((e) => this.errorHandler(e))
 );
 ```
+Rotas
+```
+http://localhost:4200/produtos
+http://localhost:4200/clientes
+http://localhost:4200/problemas
+http://localhost:4200/naoConformidades
+
+http://localhost:4200/entidade/delete/id
+http://localhost:4200/entidade/update/id
+```
 
 ### back-end (\backend)
 API desenvolvida em .Net Core para comunicação entre o Banco de Dados SQLServer e a aplicação principal.
@@ -163,6 +173,7 @@ method = GET
 
 ### Obter Problema
 - GetAll: obtem todos os Problemas cadastrados
+http://localhost:5000/problema
 ```` json
 url = http://localhost:5000/problema
 method = GET
@@ -183,6 +194,7 @@ method = GET
 
 ### Obter NC
 - GetAll: obtem todos as NC cadastradas, trazendo o Cliente, o Produto e o Problema vinculados.
+http://localhost:5000/naoConformidade
 ```` json
 url = http://localhost:5000/naoconformidade
 method = GET
@@ -210,7 +222,7 @@ method = GET
 ````
 - GetById: obtem determinada NC pelo Id
 ```` json
-url = http://localhost:5000/naoconformidade/i
+url = http://localhost:5000/naoconformidade/id
 method = GET
 {
     "id":
