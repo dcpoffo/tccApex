@@ -208,3 +208,19 @@ method = GET
     }
 }
 ````
+- GetById: obtem determinada NC pelo Id
+```` json
+url = http://localhost:5000/naoconformidade/i
+method = GET
+{
+    "id":
+    "quantidade":
+    "dataAbertura":
+    "clienteId":
+    "produtoId":
+    "problemaId":
+    "cliente": {},
+    "produto": {},
+    "problema": {}
+}
+````
