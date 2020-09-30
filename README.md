@@ -112,15 +112,21 @@ dotnet ef database update
 Depois de pronta, para testar a API, foi utilizado o Postman. O objetivo é fazer requisições HTTP e avaliar se as repostas (retornos) foram dentro do esperado.
 
 ## Executando a aplicação no VSCode
-Para que a aplicação seja executada, deve-se abrir o terminal e executar os seguintes comandos:
-- Passo 1: dentro de \backend: 
+Para que a aplicação seja executada, deve-se abrir o terminal no VSCode e executar os seguintes comandos:
+(os passos a seguir, devem ser executados apenas na primeira vez ou somente quando necessário)
+- Passo 1: dentro de \backend: (executar somente uma vez, para a criação da base de dados)
 ```
-dotnet watch run
+dotnet ef database update
 ```
 - Passo 2: dentro de \frontend: 
-O próximo passo faz-se necessário somente caso necessite baixar/atualizar alguma dependencia do projeto. Antes da primeira vez que for rodar a aplicação, deve-se baixar todas as dependencias do projeto, executando o procedimento abaixo. Caso ja tenha feito esse passo, pode-se passar para o Passo 3
+O próximo passo faz-se necessário somente caso necessite baixar/atualizar alguma dependencia do projeto. Antes da primeira vez que for rodar a aplicação, deve-se baixar todas as dependencias do projeto, executando o procedimento abaixo.
 ```
 npm update
+```
+(os passos a seguir, devem ser executados após os passos anteriores)
+- Passo 2: dentro de \backend:
+```
+dotnet watch run
 ```
 - Passo 3: dentro de \frontend:
 ```
