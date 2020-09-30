@@ -105,7 +105,7 @@ dotnet new webapi
  - Migrations: guarda informações das migrações qua são feitas. Através do comando abaixo, EF Core "liga" as informações contidas na pasta models com as contidas no DbContext e  cria um esquema da nossa base de dados: banco e tabelas, criando um histórico dentro desta pasta.
 Com o próximo comando, o EF cria/atualiza o banco de dados a partir da migração.
 ```
-dotnet ef migrations add Nome-Tabela
+dotnet ef migrations add Nome-Migration
 dotnet ef database update
 ```
 
