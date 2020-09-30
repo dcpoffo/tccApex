@@ -109,7 +109,7 @@ dotnet ef migrations add Nome-Migration
 dotnet ef database update
 ```
 
-Depois de pronta, para testar a API, foi utilizado o Postamn. O objetivo é fazer requisições HTTP e avaliar se as repostas (retornos) foram dentro do esperado.
+Depois de pronta, para testar a API, foi utilizado o Postman. O objetivo é fazer requisições HTTP e avaliar se as repostas (retornos) foram dentro do esperado.
 
 ## Executando a aplicação no VSCode
 Para que a aplicação seja executada, deve-se abrir o terminal e executar os seguintes comandos:
@@ -127,7 +127,7 @@ npm start
 ```
 
 ## Retornos
-Retorno das requisições feitas através do Postan
+Retorno das requisições feitas através do Postman
 
 ### Obter Cliente
 - GetAll: obtem todos os Clientes cadastrados
