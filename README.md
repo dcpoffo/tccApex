@@ -6,7 +6,7 @@
 ## A Aplicação
 Esta aplicação tem por objetivo realizar um cadastro de Não Conformidades (lê-se NC). 
 NC são problemas que podem acontecer com algum produto em alguma empresa. Trabalho em uma empresa na qual produz condutores elétricos. Esses condutores possuem determinadas característica como diâmetro, cor, quantidade embalada, etc. Quando alguma dessas características ficam fora do especificado, geram uma NC. Essa NC pode ser interna (identificada ma empresa) ou externa (identificada no cliente). 
-Por exemplo: o diâmetro espeficificado do cabo é de 2,00mm (+-0,1) e o cliente identificou 2,30mm. Se o cliente não conseguir usar esse cabo, ele identifica como uma NC e será tratada como um NCE (Externa).
+Por exemplo: o diâmetro espeficificado do cabo é de 2,00mm (+-0,1) e o cliente identificou 2,30mm. Se o cliente não conseguir usar esse cabo, ele identifica como uma NC e será tratada como uma NCE (Externa).
 Outro exemplo: ao ser confeccionado (processo de extrusão) o cabo, ele raspou em algum lugar, ocasionando falhas na superfície (capa). Isso gera uma NCI (Interna).
 
 ## Bases Utilizadas
