@@ -113,15 +113,16 @@ Depois de pronta, para testar a API, foi utilizado o Postman. O objetivo é faze
 
 ## Executando a aplicação no VSCode
 Para que a aplicação seja executada, deve-se abrir o terminal e executar os seguintes comandos:
-- dentro de \backend: 
+- Passo 1: dentro de \backend: 
 ```
 dotnet watch run
 ```
-- dentro de \frontend: 
+- Passo 2: dentro de \frontend: 
+O próximo passo faz-se necessário somente caso necessite baixar/atualizar alguma dependencia do projeto. Antes da primeira vez que for rodar a aplicação, deve-se baixar todas as dependencias do projeto, executando o procedimento abaixo. Caso ja tenha feito esse passo, pode-se passar para o Passo 3
 ```
-npm update (caso necessite baixar/atualizar alguma dependencia do projeto, esse comendo deve ser executado).
+npm update
 ```
-- dentro de \frontend:
+- Passo 3: dentro de \frontend:
 ```
 npm start
 ```
