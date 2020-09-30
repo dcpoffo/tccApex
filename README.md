@@ -124,11 +124,11 @@ O próximo passo faz-se necessário somente caso necessite baixar/atualizar algu
 npm update
 ```
 (os passos a seguir, devem ser executados após os passos anteriores)
-- Passo 2: dentro de \backend:
+- Passo 3: dentro de \backend:
 ```
 dotnet watch run
 ```
-- Passo 3: dentro de \frontend:
+- Passo 4: dentro de \frontend:
 ```
 npm start
 ```
