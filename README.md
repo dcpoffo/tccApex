@@ -132,6 +132,7 @@ dotnet watch run
 ```
 npm start
 ```
+Se não apresentar nenhum erro, pode-se acessar a aplicação pelo navegador, através do endereço http://localhost:4200
 
 ## Retornos
 Retorno das requisições feitas através do Postman
