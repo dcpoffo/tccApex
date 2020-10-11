@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:API/obj/Debug/netcoreapp3.1/project.razor.json
+  "FilePath": "d:\\SISTEMAS\\Angular\\tccApex\\API\\API.csproj",
+=======
   "FilePath": "d:\\SISTEMAS\\CSharp\\Apex\\TCC-NaoConformidades\\backend\\API.csproj",
+>>>>>>> abae0aa030b6f13b7fe09bafa0a7a26e414cf0d3:backend/obj/Debug/netcoreapp3.1/project.razor.json
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
