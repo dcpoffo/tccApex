@@ -10,24 +10,23 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produto';
 import { Cliente } from 'src/app/models/Cliente';
 import { MensagemService } from 'src/app/services/mensagem.service';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-naoCorformidade-create',
   templateUrl: './naoCorformidade-create.component.html',
   styleUrls: ['./naoCorformidade-create.component.scss']
 })
+
 export class NaoCorformidadeCreateComponent implements OnInit {
 
-  ncForm = new FormGroup ({
-    //quantidade: new FormControl('', Validators.required)
+  form = new FormGroup({
+    data: new FormControl('', [Validators.required]),
+    cliente: new FormControl('', [Validators.required]),
+    produto: new FormControl('', [Validators.required]),
+    problema: new FormControl('', [Validators.required]),
+    quantidade: new FormControl('', [Validators.required]),
   });
-
-  // naoConformidadeForm = new FormGroup({
-  //   id: new FormControl(''),
-  //   clienteId: new FormControl('', [Validators.required]),
-  //   produtoId: new FormControl('', [Validators.required]),
-  //   problemaId: new FormControl('', [Validators.required]),
-  // });
 
   produtos: Produto[];
   clientes: Cliente[];
@@ -75,14 +74,27 @@ export class NaoCorformidadeCreateComponent implements OnInit {
   }
 
   criarNaoConformidade(): void {
-    console.log(this.naoConformidade);
-    this.naoConformidadeServico.post(this.naoConformidade).subscribe(() => {
-      this.mensagemServico.showMessage('Não Conformidade criada com sucesso!')
-      this.router.navigate(['/naoConformidades']);
-    });
+    console.log(this.naoConformidade.clienteId);
+    if (
+      this.naoConformidade.clienteId === 0 || 
+      this.naoConformidade.produtoId === 0 || 
+      this.naoConformidade.problemaId === 0) 
+      {
+          this.mensagemServico.showMessage('Faltou selecionar algum campo. Verifique!', true);
+      }
+    else {
+        this.naoConformidadeServico.post(this.naoConformidade).subscribe(() => {
+          this.mensagemServico.showMessage('Não Conformidade criada com sucesso!')
+          this.router.navigate(['/naoConformidades']);
+      });
+    }
   }
 
   cancelar(): void {
     this.router.navigate(['/naoConformidades']);
+  }
+
+  public temErro = (controlName: string, errorName: string) => {
+    return this.form.controls[controlName].hasError(errorName);
   }
 }

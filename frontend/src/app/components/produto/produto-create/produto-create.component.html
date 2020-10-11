@@ -4,10 +4,14 @@
         <form [formGroup]="produtoForm">
             <mat-form-field appearance="outline">
                 <input formControlName="descricao" matInput placeholder="Descrição" [(ngModel)]="produto.descricao">
+                <mat-error *ngIf="temErro('descricao', 'required')">A descrição deve ser preenchida</mat-error>
+                <mat-error *ngIf="temErro('descricao', 'minlength')">O descrição deve ter pelo menos 4 caracteres</mat-error>
+                <mat-error *ngIf="temErro('descricao', 'maxlength')">Você atingiu a quantidade máxima de caracteres: 150</mat-error>
             </mat-form-field>
             <div>
                 <mat-form-field appearance="outline">
                     <input formControlName="unidadeMedida" matInput placeholder="Unidade Medida" [(ngModel)]="produto.unidadeMedida">
+                    <mat-error *ngIf="temErro('unidadeMedida', 'required')">A unidade medida deve ser preenchida</mat-error>
                 </mat-form-field>
             </div>
         </form>

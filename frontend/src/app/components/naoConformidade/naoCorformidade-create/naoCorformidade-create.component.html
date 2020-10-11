@@ -1,11 +1,86 @@
-<mat-card>
+<div class="janela">
+    <mat-card>
+        <mat-card-title>Nova Não Conformidade</mat-card-title>
+        <form [formGroup]="form">
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Data Abertura</mat-label>
+                    <input formControlName="data" matInput [matDatepicker]="picker" matInput [(ngModel)]="naoConformidade.dataAbertura">
+                    <mat-error *ngIf="temErro('data', 'required')">Faltou informar a Data</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>           
+
+            <div>
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Cliente</mat-label>
+                    <mat-select formControlName="cliente" [(ngModel)]="naoConformidade.clienteId">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let cli of clientes" [value]="cli.id"> {{cli.nome}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="temErro('cliente', 'required')">O Cliente deve ser selecionado</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Produto</mat-label>
+                    <mat-select formControlName="produto" [(ngModel)]="naoConformidade.produtoId">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let prod of produtos" [value]="prod.id"> {{prod.descricao}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="temErro('produto', 'required')">O Produto deve ser selecionado</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Quantidade</mat-label>
+                    <!--
+                    type="number":
+                    aceita somente números, incluindo exponencial. Se digitar e ou E seguido de algum número,
+                    será validado pois seria algo como 2e3 (2 elevado a 3)
+
+                    onkeydown="return event.keyCode !== 69":
+                    desabilita o uso da tecla "e"
+                     -->
+                    <input formControlName="quantidade" type="number" onkeydown="return event.keyCode !== 69" matInput [(ngModel)]="naoConformidade.quantidade" />
+                    <mat-error *ngIf="temErro('quantidade', 'required')">Faltou informar a Quantidade</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline" class="select">
+                    <mat-label>Problema</mat-label>
+                    <mat-select formControlName="problema" [(ngModel)]="naoConformidade.problemaId">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let prob of problemas" [value]="prob.id"> {{prob.descricao}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="temErro('problema', 'required')">O Problema deve ser selecionado</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+
+        <button [disabled]="!form.valid" mat-raised-button (click)="criarNaoConformidade()" color="primary">
+    Salvar
+  </button>
+
+        <button mat-raised-button (click)="cancelar()">Cancelar</button>
+    </mat-card>
+</div>
+
+
+
+<!-- <mat-card>
     <mat-card-title>Nova Não Conformidade</mat-card-title>
-    <form [formGroup]="ncForm">
+    <form [formGroup]="form">
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Data Abertura</mat-label>
-                <input matInput [matDatepicker]="picker" matInput [(ngModel)]="naoConformidade.dataAbertura">
-                <!-- [ngModelOptions]="{standalone: true}" -->
+                <input formControlName="data" matInput [matDatepicker]="picker" matInput [(ngModel)]="naoConformidade.dataAbertura">
+                <mat-error *ngIf="temErro('data', 'required')">Faltou informar a Data</mat-error>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -29,7 +104,6 @@
             <mat-form-field appearance="outline">
                 <mat-label>Quantidade</mat-label>
                 <input required type="number" matInput [(ngModel)]="naoConformidade.quantidade" />
-                <!-- formControlName="quantidade" -->
             </mat-form-field>
         </div>
 
@@ -39,11 +113,11 @@
                 <mat-option *ngFor="let prob of problemas" [value]="prob.id"> {{prob.descricao}} </mat-option>
             </mat-select>
         </mat-form-field>
-
     </form>
-    <!-- [disabled]="!ncForm.valid" -->
-    <button mat-raised-button (click)="criarNaoConformidade()" color="primary">Salvar
-  </button>
+
+    <button [disabled]="!form.valid" mat-raised-button (click)="criarNaoConformidade()" color="primary">
+      Salvar
+    </button>
 
     <button mat-raised-button (click)="cancelar()">Cancelar</button>
-</mat-card>
+</mat-card> -->

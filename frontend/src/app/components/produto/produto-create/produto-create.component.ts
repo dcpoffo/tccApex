@@ -13,7 +13,7 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 export class ProdutoCreateComponent implements OnInit {
 
   produtoForm = new FormGroup({
-    descricao: new FormControl('', [Validators.required]),
+    descricao: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(150)]),
     unidadeMedida: new FormControl('', [Validators.required])
   });
 
@@ -40,6 +40,10 @@ export class ProdutoCreateComponent implements OnInit {
 
   cancelar(): void {
     this.router.navigate(['/produtos'])
+  }
+
+  public temErro = (controlName: string, errorName: string) =>{
+    return this.produtoForm.controls[controlName].hasError(errorName);
   }
 
 }

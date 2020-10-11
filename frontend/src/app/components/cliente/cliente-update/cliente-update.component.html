@@ -4,8 +4,10 @@
         <form [formGroup]="clienteForm">
             <mat-form-field appearance="outline">
                 <input formControlName="nome" matInput placeholder="Nome do cliente" [(ngModel)]="cliente.nome">
+                <mat-error *ngIf="temErro('nome', 'required')">O nome deve ser preenchido</mat-error>
+                <mat-error *ngIf="temErro('nome', 'minlength')">O nome deve ter pelo menos 4 caracteres</mat-error>
+                <mat-error *ngIf="temErro('nome', 'maxlength')">Você atingiu a quantidade máxima de caracteres: 100</mat-error>
             </mat-form-field>
-
         </form>
 
         <button [disabled]="!clienteForm.valid" mat-raised-button (click)="atualizarCliente()" color="primary">

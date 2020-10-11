@@ -112,6 +112,7 @@ namespace API.data
           public async Task<NaoConformidade> GetNaoConformidadeAsyncById(int naoConformidadeId)
           {
                IQueryable<NaoConformidade> query = _context.NaoConformidade;
+               
                query = query.AsNoTracking().OrderBy(a => a.Id)
                                            .Where(a => a.Id == naoConformidadeId);
 

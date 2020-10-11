@@ -13,7 +13,7 @@ import { MensagemService } from 'src/app/services/mensagem.service';
 export class ProblemaUpdateComponent implements OnInit {
 
   problemaForm = new FormGroup({
-    descricao: new FormControl('', [Validators.required])
+    descricao: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(100)])
   });
 
   problema: Problema;
@@ -42,6 +42,10 @@ export class ProblemaUpdateComponent implements OnInit {
 
   cancelar(): void {
     this.router.navigate(['/problemas']);
+  }
+
+  public temErro = (controlName: string, errorName: string) =>{
+    return this.problemaForm.controls[controlName].hasError(errorName);
   }
 
 }

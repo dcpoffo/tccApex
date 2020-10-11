@@ -13,7 +13,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 export class ClienteCreateComponent implements OnInit {
 
   clienteForm = new FormGroup({
-    nome: new FormControl('', [Validators.required])
+    nome: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(100)])
   });
 
   cliente: Cliente = {
@@ -38,6 +38,10 @@ export class ClienteCreateComponent implements OnInit {
 
   cancelar(): void {
     this.router.navigate(['/clientes']);
+  }
+
+  public temErro = (controlName: string, errorName: string) =>{
+    return this.clienteForm.controls[controlName].hasError(errorName);
   }
 
 }

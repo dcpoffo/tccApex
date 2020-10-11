@@ -4,6 +4,9 @@
         <form [formGroup]="problemaForm">
             <mat-form-field appearance="outline">
                 <input formControlName="descricao" matInput placeholder="Descrição do Problema" [(ngModel)]="problema.descricao">
+                <mat-error *ngIf="temErro('descricao', 'required')">A descrição deve ser preenchida</mat-error>
+                <mat-error *ngIf="temErro('descricao', 'minlength')">O descrição deve ter pelo menos 4 caracteres</mat-error>
+                <mat-error *ngIf="temErro('descricao', 'maxlength')">Você atingiu a quantidade máxima de caracteres: 100</mat-error>
             </mat-form-field>
         </form>
         <button [disabled]="!problemaForm.valid" mat-raised-button (click)="cadastrarCliente()" color="primary"> Salvar </button>
